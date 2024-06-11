@@ -7,6 +7,9 @@ main_implementation: this is the main implementation of a variational approach t
 
 ![vbands2](https://github.com/PLBFischer/TMD-structures-moire/assets/156535559/f9e21ecc-6b53-4cde-9f03-e6861f914e31)
 
+| ![Image 1](https://github.com/PLBFischer/TMD-structures-moire/assets/156535559/9f3b22c5-61df-4b77-ae50-128086f78b72) | ![Image 2]((https://github.com/PLBFischer/TMD-structures-moire/assets/156535559/f9e21ecc-6b53-4cde-9f03-e6861f914e31)) |
+|:-----------------------------------:|:-----------------------------------:|
+| Description for image 1             | Description for image 2             |
 
 
 standard_eigensolver: in the limit of a vanishing moire potential the exciton binding energies can be calculated much quicker with a standard numerical eigensolver. This file contains the implementation of such an eigensolver.
