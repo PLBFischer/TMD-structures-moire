@@ -1,0 +1,226 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7547,        216]
+NotebookOptionsPosition[      6998,        200]
+NotebookOutlinePosition[      7403,        216]
+CellTagsIndexPosition[      7360,        213]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"L", " ", "=", " ", "200"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"m", " ", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"d", " ", "=", " ", "1000"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"ei", ",", "ev"}], "}"}], "=", 
+   RowBox[{"NDEigensystem", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "1"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"2", "m"}], ")"}]}], "*", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"D", "[", 
+          RowBox[{
+           RowBox[{"\[Psi]", "[", "x", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "2"}], "}"}]}], "]"}], "+", 
+         RowBox[{
+          RowBox[{"1", "/", "x"}], " ", "*", " ", 
+          RowBox[{"D", "[", 
+           RowBox[{
+            RowBox[{"\[Psi]", "[", "x", "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "1"}], "}"}]}], "]"}]}]}], ")"}]}], "-", 
+      RowBox[{
+       RowBox[{"1", "/", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{
+          RowBox[{"x", "^", "2"}], " ", "+", " ", 
+          RowBox[{"d", "^", "2"}]}], "]"}]}], "*", 
+       RowBox[{"\[Psi]", "[", "x", "]"}]}], "+", 
+      RowBox[{"10", "*", 
+       RowBox[{"\[Psi]", "[", "x", "]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Psi]", "[", "x", "]"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "L"}], "}"}], " ", 
+     RowBox[{"(*", "domain", "*)"}], ",", "1", 
+     RowBox[{"(*", 
+      RowBox[{"number", " ", "of", " ", "eigenvalues"}], "*)"}], ",", 
+     RowBox[{"Method", "->", 
+      RowBox[{"{", 
+       RowBox[{"\"\<SpatialDiscretization\>\"", "->", 
+        RowBox[{"{", 
+         RowBox[{"\"\<FiniteElement\>\"", ",", 
+          RowBox[{"\"\<MeshOptions\>\"", "->", 
+           RowBox[{"{", 
+            RowBox[{"\"\<MaxCellMeasure\>\"", "->", "0.01"}], "}"}]}]}], 
+         "}"}]}], "}"}]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ei", "=", 
+  RowBox[{"ei", "-", "10"}]}]}], "Input",
+ CellChangeTimes->{{3.9170401102555523`*^9, 3.917040111272892*^9}, {
+  3.9170401628671618`*^9, 3.9170401719286013`*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"378fbd62-bf53-49db-bb1d-e7b59b8ed4c6"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"dValues", "=", 
+    RowBox[{"N", "[", 
+     RowBox[{"Range", "[", 
+      RowBox[{"0.0001", ",", "100", ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"100", "-", "0.0001"}], ")"}], "/", "999"}]}], "]"}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Define", " ", "a", " ", "function", " ", "to", " ", "compute", " ", "for",
+     " ", "a", " ", "given", " ", "d"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"computeForD", "[", "d_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"ei", ",", "ev"}], "}"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"ei", ",", "ev"}], "}"}], "=", 
+        RowBox[{"NDEigensystem", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"-", "1"}], "/", 
+             RowBox[{"(", 
+              RowBox[{"2", "m"}], ")"}]}], "*", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"D", "[", 
+               RowBox[{
+                RowBox[{"\[Psi]", "[", "x", "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"x", ",", "2"}], "}"}]}], "]"}], "+", 
+              RowBox[{
+               RowBox[{"1", "/", "x"}], "*", 
+               RowBox[{"D", "[", 
+                RowBox[{
+                 RowBox[{"\[Psi]", "[", "x", "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"x", ",", "1"}], "}"}]}], "]"}]}]}], ")"}]}], "-", 
+           RowBox[{
+            RowBox[{"1", "/", 
+             RowBox[{"Sqrt", "[", 
+              RowBox[{
+               RowBox[{"x", "^", "2"}], "+", 
+               RowBox[{"d", "^", "2"}]}], "]"}]}], "*", 
+            RowBox[{"\[Psi]", "[", "x", "]"}]}], "+", 
+           RowBox[{"10", "*", 
+            RowBox[{"\[Psi]", "[", "x", "]"}]}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"\[Psi]", "[", "x", "]"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", "0", ",", "L"}], "}"}], ",", "1", ",", 
+          RowBox[{"Method", "->", 
+           RowBox[{"{", 
+            RowBox[{"\"\<SpatialDiscretization\>\"", "->", 
+             RowBox[{"{", 
+              RowBox[{"\"\<FiniteElement\>\"", ",", 
+               RowBox[{"\"\<MeshOptions\>\"", "->", 
+                RowBox[{"{", 
+                 RowBox[{"\"\<MaxCellMeasure\>\"", "->", "0.01"}], "}"}]}]}], 
+              "}"}]}], "}"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"ei", "=", 
+        RowBox[{"ei", "-", "10"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"ei", ",", "ev"}], "}"}]}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Map", " ", "the", " ", "function", " ", "over", " ", "all", " ", "d", " ",
+     "values"}], "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"results", "=", 
+   RowBox[{"computeForD", "/@", "dValues"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.917040152850985*^9, 
+  3.9170401586352158`*^9}},ExpressionUUID->"c6ebfb07-ede0-4e00-8caf-\
+7b6273952edb"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"eigenvalues", "=", 
+    RowBox[{"results", "[", 
+     RowBox[{"[", 
+      RowBox[{"All", ",", "1", ",", "1"}], "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", 
+   RowBox[{"Plot", " ", "eigenvalues", " ", "over", " ", "dValues"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Transpose", "[", 
+    RowBox[{"{", 
+     RowBox[{"dValues", ",", "eigenvalues"}], "}"}], "]"}], ",", 
+   RowBox[{"PlotStyle", "->", 
+    RowBox[{"{", 
+     RowBox[{"Blue", ",", 
+      RowBox[{"PointSize", "[", "Medium", "]"}]}], "}"}]}], ",", 
+   RowBox[{"AxesLabel", "->", 
+    RowBox[{"{", 
+     RowBox[{"\"\<d\>\"", ",", "\"\<Eigenvalue\>\""}], "}"}]}], ",", 
+   RowBox[{"PlotLabel", "->", "\"\<Eigenvalue vs. d\>\""}], ",", 
+   RowBox[{"Joined", "->", "True"}], ",", 
+   RowBox[{"Mesh", "->", "All"}], ",", 
+   RowBox[{"MeshStyle", "->", "Red"}]}], "]"}]}], "Input",ExpressionUUID->\
+"feeaa7dd-ce58-4c19-a311-d02277ad4eb7"]
+},
+WindowSize->{478., 561.5},
+WindowMargins->{{Automatic, -4.5}, {Automatic, 0}},
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (January 30, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"aa8033e1-ae6d-4529-97ff-3574577449fd"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2271, 62, 295, "Input",ExpressionUUID->"378fbd62-bf53-49db-bb1d-e7b59b8ed4c6"],
+Cell[2832, 84, 3142, 85, 390, "Input",ExpressionUUID->"c6ebfb07-ede0-4e00-8caf-7b6273952edb"],
+Cell[5977, 171, 1017, 27, 162, "Input",ExpressionUUID->"feeaa7dd-ce58-4c19-a311-d02277ad4eb7"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
