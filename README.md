@@ -1,4 +1,4 @@
-# Semester Project Code Paolo Fischer
+# Exciton Binding Energies in Moire
 
 This is a repository for a research internship I did in the summer of 2023 at the group of Prof. Imamoglu at ETH Zurich. In this project I developed a numerical simulation of the band strucutre of transition metal dichalcogenide (TMD) bilayers with moire. In addition to this, I implemented a method to solve Fredholm equations with singular kernels to find the excitonic energy levels. It contains:
 
