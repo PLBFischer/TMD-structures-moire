@@ -1,6 +1,6 @@
 # Exciton Binding Energies in Moire
 
-This is a repository for a research internship I did in the summer of 2023 at the group of Prof. Imamoglu at ETH Zurich. In this project I developed a numerical simulation of the band strucutre of transition metal dichalcogenide (TMD) bilayers with moire. In addition to this, I implemented a method to solve Fredholm equations with singular kernels to find the excitonic energy levels. It contains:
+This is a repository for a research internship I did in the summer of 2023 at the group of Prof. Imamoglu at ETH Zurich. In this project I developed a numerical simulation of the energy levels of interlayer excitons in transition metal dichalcogenide (TMD) bilayers with moire. 
 
 main_implementation: this is the main implementation of a variational approach to find the excitonic binding energies in the presence of moire. This requires solving Fredholm equations in addition to determining the moire band structure. As a variational basis set I chose states in which electron and holes are non-interacting bloch-waves.
 
